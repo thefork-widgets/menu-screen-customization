@@ -1,0 +1,44 @@
+<script type="text/javascript">
+  let saleTypeExclusion = "";
+  var showDetails;
+
+  // menus
+  var menuSelva;
+  var menuFoglie;
+  var menuApulia;
+
+// italiano
+if(window.location.href.search( 'it_IT' )!=-1){
+	// descripción debajo del titulo del menu
+  saleTypeExclusion = 'Il ristorante è chiuso il lunedì.<br><br>Attenzione, non sarà possible ordinare "a la carte" al ristorante.';
+  showDetails = "Mostra menu";
+
+  // enlaces al menu
+  menuSelva = "https://drive.google.com/file/d/1EcXdUfUnHpBV2xydA-57BFxjs1SzqA3D/view";
+  menuFoglie = "https://drive.google.com/file/d/1T-Zq1HonQEL1vj_mGnJRQ2tQpnxwOU1J/view"; 
+  menuApulia = "https://drive.google.com/file/d/1O7JMbxxrwe5YCBi6nEVu4IGItD-5r0kU/view";
+  
+// resto de idiomas   
+}else{
+
+// descripción debajo del titulo del menu
+  saleTypeExclusion = 'The restaurant is closed on Mondays.<br><br> Please note that it will not be possible to order "a la carte" in the restaurant.';
+  showDetails = "Show menu";
+  // enlaces al menu
+  menuSelva = "https://drive.google.com/file/d/1Egr5v0XfQzFr2eGm52HU58eHEwawHYwq/view" ;
+  menuFoglie = "https://drive.google.com/file/d/1IgrjBNeU-DtCZc7U4ZmdbafyCmHyW0Rl/view" ;
+  menuApulia = "https://drive.google.com/file/d/1xakQn-GiU3wRVE7ifkx0m6jjbqmlkXDW/view" ;
+  
+}
+
+$(document).ready(function(){
+  $('.saleType-toggleDetails').hide();
+  $('.saleType-exclusion').html(saleTypeExclusion);
+
+  // Link the website pdfs - st_detail_XXXXXXX: Dropdown div id
+  $('.offer').find('#st_detail_4828724').prev().append('<br><a class="details-link" href="'+ menuSelva +'" target="blank">'+ showDetails +'</a>');//Selva 160
+  $('.offer').find('#st_detail_4828713').prev().append('<br><a class="details-link" href="'+ menuFoglie +'" target="blank">'+ showDetails +'</a>'); //Foglie 160
+  $('.offer').find('#st_detail_4745358').prev().append('<br><a class="details-link" href="'+ menuApulia +'" target="blank">'+ showDetails +'</a>'); //Apulia 160
+ 
+}); 
+</script>
